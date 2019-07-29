@@ -9,16 +9,25 @@ import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
 
+import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.testng.Assert;
 
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.config.ConnectionConfig;
+import com.jayway.restassured.config.RestAssuredConfig;
 import com.jayway.restassured.path.json.JsonPath;
+import com.jayway.restassured.response.Response;
+import static com.jayway.restassured.RestAssured.given;
 
 
 public class JsonReader {
 
+  private static Logger logger = Logger.getLogger(JsonReader.class.getName());
+  
   private String readAll(Reader rd) throws IOException {
     StringBuilder sb = new StringBuilder();
     int cp;
@@ -41,6 +50,14 @@ public class JsonReader {
   }
 
   public JsonPath readJson() throws IOException, JSONException {
+	  logger.info("the end point url is : "+AutomationBuddy.globalmap.get("url"));
+	  RestAssuredConfig config = RestAssured.config().connectionConfig(ConnectionConfig.connectionConfig());
+	  config = config.connectionConfig(ConnectionConfig.connectionConfig().closeIdleConnectionsAfterEachResponse());
+	  config.set();
+
+	  RestAssured.baseURI  = AutomationBuddy.globalmap.get("baseuri");
+	     	Response respApi = given().contentType("application/json").when().get(AutomationBuddy.globalmap.get("endpoint"));
+	     	Assert.assertEquals(respApi.getStatusCode(), 200 , "Expected response code 200 is not returned. The response code is  :"+respApi.getStatusCode());
       JSONObject json = readJsonFromUrl(AutomationBuddy.globalmap.get("url"));
 	  JsonPath jp = new JsonPath(json.toString());
 	  

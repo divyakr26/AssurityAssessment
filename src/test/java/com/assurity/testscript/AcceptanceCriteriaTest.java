@@ -1,21 +1,15 @@
 package com.assurity.testscript;
 
-import static org.testng.Assert.assertTrue;
-
 import java.util.HashMap;
 
 import org.testng.Assert;
 import org.testng.ITestNGMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.assurity.library.AutomationBuddy;
 import com.assurity.library.JsonReader;
 import com.assurity.reports.BaseTest;
-import com.jayway.restassured.path.json.JsonPath;
 import com.relevantcodes.extentreports.LogStatus;
 
 /**

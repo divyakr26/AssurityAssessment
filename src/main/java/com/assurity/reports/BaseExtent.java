@@ -9,14 +9,10 @@ import java.lang.reflect.Method;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Hashtable;
-import java.util.Map;
 import java.util.Properties;
-import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
@@ -31,19 +27,8 @@ public class BaseExtent {
  	protected ExtentTest test;
  	
  	public String suite;
-    public static String url;
-    public static String browser;
-    public static String username;
-	static public String password;
-	public static String CCtestID;
-    public static String afsURL;
-    public static String CCEID;
-    public static String counseleeTestID;
-    public static String counseleeEID, RC,PA, PA_Counselee;
-    public static String testDataDir;
     
     public String path = System.getProperty("user.dir");
-    public String downloadPath = path+"\\PAReports";
     public  String testName;
 	    
 	 
@@ -138,20 +123,6 @@ public class BaseExtent {
 			Properties properties = new Properties();
 			properties.load(fileInput);
 			fileInput.close();
-			//System.out.println("Test data loaded from properties file.");
-			url = properties.getProperty("URL");
-			username = properties.getProperty("ADUser");
-			browser = properties.getProperty("browser");
-			password = properties.getProperty("password");
-			CCtestID = properties.getProperty("CCtestID");
-			afsURL = properties.getProperty("AFS_URL");
-			CCEID = properties.getProperty("CCEID");
-			counseleeTestID = properties.getProperty("counseleeTestID");
-			counseleeEID = properties.getProperty("counseleeEID");
-			//RC = properties.getProperty("RC");
-			PA = properties.getProperty("PA");
-			PA_Counselee = properties.getProperty("PA_Counselee");
-			testDataDir = properties.getProperty("mockReportDIR");
     	}catch(FileNotFoundException e){
     		e.printStackTrace();
     	}catch(IOException e){

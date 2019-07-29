@@ -1,11 +1,10 @@
 package com.assurity.library;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import org.json.JSONException;
+import org.apache.log4j.Logger;
 import org.testng.ITestNGMethod;
 
 import com.jayway.restassured.path.json.JsonPath;
@@ -14,7 +13,7 @@ public class AutomationBuddy {
 
 
     
-    
+    private static Logger logger = Logger.getLogger(AutomationBuddy.class.getName());
     public final static String env = "Sandbox";
     
     public static String environment;
@@ -29,43 +28,15 @@ public class AutomationBuddy {
     
     public final static LinkedHashMap<String, String> globalmap = new LinkedHashMap<>();
         
-    public final static HashMap<String,HashMap<String, String>> preconditionmap = new HashMap<String, HashMap<String, String>>();
     
-     public static void setenvironment(String env){
-    	environment = env;
-    }
+     
     
-    public static String getenv(){
-    	if(environment.equalsIgnoreCase("pp")){
-    		return "";
-    	}
-    	else{
-    		throw new RuntimeException("Environment is not set");
-    	}
-    	
-    }
     
     /**
-     * .
-     * 
-     * @param emailre
-     *            
+     * @param jpath
+     * @return
+     * @throws Exception
      */
-    public static void setemailrec(String emailre){
-    	emailrec = emailre;
-    }
-    
-    public static String getemailrec(){
-    	
-    	return emailrec;
-    	
-    }
-    
-     public static String testdatafolder()
-    {
-    	return systemdir+testdatafolder;
-    }
-    
     public static LinkedHashMap<String, String> processCriteriaData(JsonPath jpath) throws Exception{
     	
     	LinkedHashMap<String, String> testdatamap = new LinkedHashMap<>();
@@ -79,10 +50,13 @@ public class AutomationBuddy {
 				}
 			}
         if(criterialoop==0){
+        	logger.error("Exception in Dataprovider..There is no Acceptance Criteria set in the test data, NO test will execute");
         	throw new Exception("Exception in Dataprovider..There is no Acceptance Criteria set in the test data, NO test will execute");
         }
         String api = jpath.getString("Sandbox_TestURL");
         String endpoint = jpath.getString("endPoint");
+        globalmap.put("baseuri", api);
+        globalmap.put("endpoint", endpoint);
     	if(endpoint!=null){
     		api+=endpoint;
     	}
@@ -91,6 +65,7 @@ public class AutomationBuddy {
         for (int i = 1; i <=criterialoop; i++) {
 			String tovalidate = jpath.getString("Acceptance_Criteria"+i);
 			if(tovalidate ==null){
+				logger.error("Exception in Dataprovider..Please check the Acceptance Criteria in TESTDATA.JSON, It should be Serlialized");
 				throw new Exception("Exception in Dataprovider.. Please check the Acceptance Criteria in TESTDATA.JSON, It should be Serlialized");
 			}
 			System.out.println(tovalidate);
@@ -142,8 +117,10 @@ public class AutomationBuddy {
     			try{
     			 actualvalue = jp.getString(key+"."+getkey+"["+count+"]").replaceAll("\n", "");
     			}catch(NullPointerException e){
+    				logger.error("**********\nThe expected JSON value is not present in the API response \n The expected value should have '~ , ! , = '\n Please correct the input \n**********");
         			throw new Exception("**********\nThe expected JSON value is not present in the API response \n The expected value should have '~ , ! , = '\n Please correct the input \n**********");
             	}catch (Exception e) {
+            		logger.error("**********\nThe expected JSON value is not present in the API response \n Please check is your validation valid?\n**********");
     				throw new Exception("**********\nThe expected JSON value is not present in the API response \n Please check is your validation valid?\n**********");
         		}
     			

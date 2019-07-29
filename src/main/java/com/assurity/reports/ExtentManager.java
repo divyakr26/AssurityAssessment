@@ -5,7 +5,6 @@ import java.io.File;
 import java.net.UnknownHostException;
 
 import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.NetworkMode;
 
 public class ExtentManager {
     private static ExtentReports extent;

@@ -21,23 +21,16 @@
 package com.assurity.reports;
 
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Properties;
 
 import org.apache.log4j.PropertyConfigurator;
-import org.testng.ISuite;
-import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.relevantcodes.extentreports.LogStatus;
 
 
 
@@ -80,7 +73,7 @@ public void onTestFailure(ITestResult iTestResult) {
     System.out.println("I am in onTestFailure method " + getTestMethodName(iTestResult) + " failed");
 
     //Get driver from BaseTest and assign to local webDriver variable.
-    Object testClass = iTestResult.getInstance();
+     iTestResult.getInstance();
 
   
 
