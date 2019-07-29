@@ -1,23 +1,4 @@
-/*
- * Decompiled with CFR 0_114.
- * 
- * Could not load the following classes:
- *  org.openqa.selenium.WebDriver
- *  org.testng.IClass
- *  org.testng.IInvokedMethod
- *  org.testng.IResultMap
- *  org.testng.IRetryAnalyzer
- *  org.testng.ISuite
- *  org.testng.ISuiteListener
- *  org.testng.ITestContext
- *  org.testng.ITestListener
- *  org.testng.ITestNGMethod
- *  org.testng.ITestResult
- *  org.testng.Reporter
- *  org.testng.internal.ConstructorOrMethod
- *  org.testng.internal.Utils
- *  org.testng.xml.XmlTest
- */
+
 package com.assurity.reports;
 
 
@@ -30,7 +11,6 @@ import org.apache.log4j.PropertyConfigurator;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 
 
 
@@ -73,7 +53,7 @@ public void onTestFailure(ITestResult iTestResult) {
     System.out.println("I am in onTestFailure method " + getTestMethodName(iTestResult) + " failed");
 
     //Get driver from BaseTest and assign to local webDriver variable.
-     iTestResult.getInstance();
+    Object testClass = iTestResult.getInstance();
 
   
 

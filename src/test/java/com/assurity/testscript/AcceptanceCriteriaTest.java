@@ -2,6 +2,7 @@ package com.assurity.testscript;
 
 import java.util.HashMap;
 
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.ITestNGMethod;
 import org.testng.annotations.DataProvider;
@@ -18,7 +19,7 @@ import com.relevantcodes.extentreports.LogStatus;
  */
 public class AcceptanceCriteriaTest extends BaseTest{
 
-	
+	private static Logger logger = Logger.getLogger(AcceptanceCriteriaTest.class.getName());
 	JsonReader jreader = new JsonReader();
 	String methodname;
 	/**
@@ -42,18 +43,22 @@ public class AcceptanceCriteriaTest extends BaseTest{
 		if(expecteddata.contains("~")){
 			expecteddata = expecteddata.replaceFirst("~", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertTrue(actualAPIdata.contains(expecteddata), "Validating " + key +". "+ Value +"the value is present in the actual API data");
 			
 		}else if(expecteddata.contains("=")){
 			expecteddata = expecteddata.replaceFirst("=", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is same as the actual API data");
 		}else if(expecteddata.contains("!")){
 			expecteddata = expecteddata.replaceFirst("!", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertNotEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is not same as the actual API data");
 		}else{
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +"="+ Value +"the value is same as the actual API data");
 			
 		}
@@ -75,17 +80,21 @@ public class AcceptanceCriteriaTest extends BaseTest{
 		if(expecteddata.contains("~")){
 			expecteddata = expecteddata.replaceFirst("~", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertTrue(actualAPIdata.contains(expecteddata), "Validating " + key +". "+ Value +"the value is present in the actual API data");
 		}else if(expecteddata.contains("=")){
 			expecteddata = expecteddata.replaceFirst("=", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is same as the actual API data");
 		}else if(expecteddata.contains("!")){
 			expecteddata = expecteddata.replaceFirst("!", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertNotEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is not same as the actual API data");
 		}else{
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +"="+ Value +"the value is same as the actual API data");
 		}
     }
@@ -105,16 +114,19 @@ public class AcceptanceCriteriaTest extends BaseTest{
 		if(expecteddata.contains("~")){
 			expecteddata = expecteddata.replaceFirst("~", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertTrue(actualAPIdata.contains(expecteddata), "Validating " + key +". "+ Value +"the value is present in the actual API data");
 		}else if(expecteddata.contains("=")){
 			expecteddata = expecteddata.replaceFirst("=", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is same as the actual API data");
 		}else if(expecteddata.contains("!")){
 			expecteddata = expecteddata.replaceFirst("!", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertNotEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is not same as the actual API data");
 		}else{
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +"="+ Value +"the value is same as the actual API data");
 		}
     }
@@ -135,10 +147,12 @@ public class AcceptanceCriteriaTest extends BaseTest{
 		if(expecteddata.contains("~")){
 			expecteddata = expecteddata.replaceFirst("~", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertTrue(actualAPIdata.contains(expecteddata), "Validating " + key +". "+ Value +"the value is not present in the actual API data");
 		}else if(expecteddata.contains("=")){
 			expecteddata = expecteddata.replaceFirst("=", "");
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is not same as the actual API data");
 		}else if(expecteddata.contains("!")){
 			expecteddata = expecteddata.replaceFirst("!", "");
@@ -146,6 +160,7 @@ public class AcceptanceCriteriaTest extends BaseTest{
 			Assert.assertNotEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is same as the actual API data");
 		}else{
 			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
 			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +"="+ Value +"the value is not same as the actual API data");
 		}
     }

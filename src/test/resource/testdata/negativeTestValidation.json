@@ -1,0 +1,9 @@
+{
+"Sandbox_TestURL" : "https://api.tmsandbox.co.nz",
+"endPoint" : "/v1/Categories/6327/Details.json?catalogue=false",
+
+"Acceptance_Criteria1" : 
+		{
+			"DefaultDuration" : "12"
+		}
+}
