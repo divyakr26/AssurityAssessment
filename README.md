@@ -16,6 +16,11 @@
 <br/>The input test data is also formatted in <B>.json</B> format for easy handling of test input and validations
 <br/>The input json which has the acceptance criteria is validated with the response data via assertion
 
+## Project Highlights
+> Vaidation of all API can be done without wrapper class/ script updation .<br/>
+> All new validation can be covered in adding new test data json<br/>
+> Any new Automation resource will be able to learn and implement this framework as quick as possible
+
 ## Architech Diagram of the Framework
 ![](src/test/resource/Readmeimage/Assurity%20Architectural%20Diagram.jpg)
 
