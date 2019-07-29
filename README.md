@@ -17,7 +17,7 @@
 <br/>The input json which has the acceptance criteria is validated with the response data via assertion
 
 ## Project Highlights
-> Vaidation of all API can be done without wrapper class/ script updation .<br/>
+> Vaidation of all API can be done with the existing wrapper class. Future Test-cases can be included .<br/>
 > All new validation can be covered in adding new test data json<br/>
 > Any new Automation resource will be able to learn and implement this framework as quick as possible
 
@@ -81,11 +81,22 @@ As the input test data is .Json format, The parameter to validate is also given 
   
   
   
-  > *To check the exact match with the response when key object is given ' = ' is used in the test data
+  ## Validations
   
-  > *To check the text is present in the response when key object is given ' ~ ' is used in the test data
+  > Once the data is passed to data provider the API uri response code is validated for status code 200
   
-  > *To check the text is not present in the response when key object is given ' ! ' is used in the test data
+  > *To check the exact match with the response when key object is given ' key :=value ' is used in the test data 
+  
+  > *To check the text is present in the response when key object is given ' key :~value ' is used in the test data
+  
+  > *To check the text is not present in the response when key object is given ' key:!value ' is used in the test data
+  
+  > *To check the parameter value in test data is equal to the response paramater key : value is used in the test data
+  
+  > ### one Negative test method is included just to Project how the extend report captures the error and displays the log in the report
+  
+  
+  
   
   FOR More live examples please refer to src/test/resource/testdata/ .json file
 
