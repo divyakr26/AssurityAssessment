@@ -1,0 +1,21 @@
+{
+"Sandbox_TestURL" : "https://api.tmsandbox.co.nz",
+"endPoint" : "/v1/Categories/6327/Details.json?catalogue=false",
+
+"Acceptance_Criteria1" : 
+		{
+			"Name" : "Carbon credits"
+		},
+"Acceptance_Criteria2" : 
+		{
+			"CanRelist": true
+		},
+"Acceptance_Criteria3" :
+		{
+			"Promotions": 
+	        {
+	            "Description": "~2x larger image",
+	            "Name": "Gallery"
+	        }
+		}
+}

@@ -1,0 +1,14 @@
+#ignore log file 
+README.txt
+
+#ignore outfolder
+test-output/
+target/
+
+#git will build own compressed folder
+*.rar
+*.7z
+
+
+#ignore Report.html , Hoewever new file will be generated one the test is run
+*.html 
