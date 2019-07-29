@@ -43,15 +43,15 @@ Mvn -version
 As the input test data is .Json format, The parameter to validate is also given as json
 <br/>For all the parameter which is to be validated should be given inside Acceptance_Criteria
 <br/>If only one parameter is to be validated it should be given in below format
-> <B>Test data Input format for single acceptance criteria without key </B>
-<br/> _"Acceptance_Criteria1" : 
+> #### Test data Input format for single acceptance criteria without key 
+><br/> _"Acceptance_Criteria1" : 
   <br/>    {
   <br/>      "Name" : "Carbon credits"
   <br/>    }_
 
 
-> <B> Test data Input format for one parameter validation with key object </B>
-<br/> _"Acceptance_Criteria1" : 
+>#### Test data Input format for one parameter validation with key object 
+><br/> _"Acceptance_Criteria1" : 
   <br/>    {
 <br/>			"Promotions": 
 <br/>        {
@@ -61,8 +61,8 @@ As the input test data is .Json format, The parameter to validate is also given 
 <br/>		}_
 
 
->### Test data Input format for multiple acceptance criteria with key object 
-<br/> _"Acceptance_Criteria1" : 
+>#### Test data Input format for multiple acceptance criteria with key object 
+><br/> _"Acceptance_Criteria1" : 
   <br/>    {
   <br/>      "Name" : "Carbon credits"
   <br/>    }_
