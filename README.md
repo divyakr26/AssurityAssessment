@@ -38,21 +38,88 @@ Mvn -version
 As the input test data is .Json format, The parameter to validate is also given as json
 <br/>For all the parameter which is to be validated should be given inside Acceptance_Criteria
 <br/>If only one parameter is to be validated it should be given in below format
-> Test data Input format for direct parameter validation
+> Test data Input format for single acceptance criteria without key
 <br/> _"Acceptance_Criteria1" : 
-      {
-        "Name" : "Carbon credits"
-      }_
+  <br/>    {
+  <br/>      "Name" : "Carbon credits"
+  <br/>    }_
 
-_For more examples 
 
-## Development setup
+> Test data Input format for one parameter validation with key object
+<br/> _"Acceptance_Criteria1" : 
+  <br/>    {
+<br/>			"Promotions": 
+<br/>        {
+<br/>	            "Description": "=Good position in category 2x larger image in desktop site search results",
+<br/>	            "Name": "Gallery"
+<br/>	        }
+<br/>		}_
 
+
+> Test data Input format for multiple acceptance criteria with key object
+<br/> _"Acceptance_Criteria1" : 
+  <br/>    {
+  <br/>      "Name" : "Carbon credits"
+  <br/>    }_
+  <br/> _"Acceptance_Criteria2" : 
+  <br/>    {
+  <br/>      "Name" : "Carbon credits"
+  <br/>    }_
+  <br/> _"Acceptance_Criteria3" : 
+  <br/>    {
+            "Promotions": 
+	  <br/>     {
+        <br/>      "Description": "~2x larger image",
+       <br/>       "Name": "Gallery"
+    <br/>        }
+  <br/>     }_
+  
+  
+  
+  > *To check the exact match with the response when key object is given ' = ' is used in the test data
+  
+  > *To check the text is present in the response when key object is given ' ~ ' is used in the test data
+  
+  > *To check the text is not present in the response when key object is given ' ! ' is used in the test data
+  
+  FOR More live examples please refer to src/test/resource/testdata/ .json file
+
+
+
+
+
+## How to run the test
+
+Download the code from GITHUB 
 
 ```sh
-make install
-npm test
+git pull origin master 
+<br/>https://github.com/divyakr26/AssurityAssessment.git
 ```
+
+if you have TestNG installed as mentioned in precondition step, 
+
+Open the project in any IDE (Eclipse preferred) right click TestNG.xml and run as TestNG suite
+
+If you want to run the project as maven Build 
+
+Open the command promt, Navigate to your project folder
+```sh
+C:\Users> cd path to your folder
+C:\Users\Projectfolder> mvn clean install
+```
+
+## Reporting
+
+For greater understanding Extent report is plugged in with the framework, However the inbuild testNG report is also available
+
+Once all the test is executed,
+<br/>Open the project folder and find the Extent report with the name 
+>### APIAutomation suite.html
+
+For testNG report
+<br/> Open the project folder and navigate to test-output folder and find the report with the name
+> ### emailable-report.html
 
 
 ## Contributing
