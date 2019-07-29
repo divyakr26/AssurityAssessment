@@ -17,7 +17,7 @@
 <br/>The input json which has the acceptance criteria is validated with the response data via assertion
 
 ## Architech Diagram of the Framework
-(../src/test/resource/readmeimage/AssurityArchitectural Diagram.jpg)
+![](src/test/resource/Readmeimage/Assurity%20Architectural%20Diagram.jpg)
 
 ## Installation/Pre conditions for Running the test
 
@@ -33,8 +33,16 @@ Java -version
 Mvn -version
 ```
 
-## Usage example
+## Creating testdata
 
+As the input test data is .Json format, The parameter to validate is also given as json
+<br/>For all the parameter which is to be validated should be given inside Acceptance_Criteria
+<br/>If only one parameter is to be validated it should be given in below format
+> Test data Input format for direct parameter validation
+<br/> _"Acceptance_Criteria1" : 
+      {
+        "Name" : "Carbon credits"
+      }_
 
 _For more examples 
 
