@@ -9,12 +9,15 @@
        </listeners>
 	
 	 <test verbose="2" name="Simple_API_Assesement" annotations="JDK">
-    <classes>     		
+    <classes>     
+    <!-- <all class files are execued so method name is not used in testng.xml> -->		
      		 <class name="com.assurity.testscript.AcceptanceCriteriaTest"/>
-        </classes>
+     		 <class name="com.assurity.testscript.NegativeTestcase"/>
+    </classes>
     </test> 
     
-
+    
+    
 
     
     
