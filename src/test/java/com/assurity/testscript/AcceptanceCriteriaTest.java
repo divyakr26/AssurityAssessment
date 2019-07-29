@@ -166,6 +166,43 @@ public class AcceptanceCriteriaTest extends BaseTest{
     }
 	
 	/**
+	 * @param key
+	 * @param Value
+	 * @throws Exception
+	 */
+	@Test(dataProvider="testScripts")
+    public void negativeTestValidation(String key,String Value) throws Exception{
+		test = extent.startTest("@Testname :"+methodname +" :   Validate :" + key +"=" + Value );
+		HashMap<String, String> resultdatamap = AutomationBuddy.processTestData(jreader,key, Value);
+		String actualAPIdata = resultdatamap.get("Actualvalue");
+		String expecteddata = resultdatamap.get("Expectedvalue");
+		
+		if(expecteddata.contains("~")){
+			expecteddata = expecteddata.replaceFirst("~", "");
+			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			Assert.assertTrue(actualAPIdata.contains(expecteddata), "Validating " + key +". "+ Value +"the value is present in the actual API data");
+			
+		}else if(expecteddata.contains("=")){
+			expecteddata = expecteddata.replaceFirst("=", "");
+			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is same as the actual API data");
+		}else if(expecteddata.contains("!")){
+			expecteddata = expecteddata.replaceFirst("!", "");
+			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			Assert.assertNotEquals(actualAPIdata, expecteddata, "Validating " + key +". "+ Value +"the value is not same as the actual API data");
+		}else{
+			test.log(LogStatus.INFO, "Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			logger.info("Actualdata="+actualAPIdata +"expected data ="+expecteddata);
+			Assert.assertEquals(actualAPIdata, expecteddata, "Validating " + key +"="+ Value +"the value is same as the actual API data");
+			
+		}
+		
+	}
+	
+	/**
 	 * @return 
 	 * @throws Exception
 	 */

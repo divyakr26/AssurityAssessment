@@ -12,7 +12,6 @@
     <classes>     
     <!-- <all class files are execued so method name is not used in testng.xml> -->		
      		 <class name="com.assurity.testscript.AcceptanceCriteriaTest"/>
-     		 <class name="com.assurity.testscript.NegativeTestcase"/>
     </classes>
     </test> 
     
